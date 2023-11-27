@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class RubyController : MonoBehaviour
 {
+    public int score;
+    public GameObject scoreText;
     public float speed = 3.0f;
     
     public int maxHealth = 5;
     
     public GameObject projectilePrefab;
+    public GameObject hurtEffect;
     
     public AudioClip throwSound;
     public AudioClip hitSound;
@@ -30,6 +33,8 @@ public class RubyController : MonoBehaviour
     
     AudioSource audioSource;
     
+   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -83,6 +88,8 @@ public class RubyController : MonoBehaviour
                 }
             }
         }
+
+        //Fixed.textmeshpro_count_text.text = "Fixed Robots: " + score.ToString();
     }
     
     void FixedUpdate()
@@ -104,6 +111,8 @@ public class RubyController : MonoBehaviour
             isInvincible = true;
             invincibleTimer = timeInvincible;
             
+             GameObject anythingElse = Instantiate(hurtEffect.gameObject, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+
             PlaySound(hitSound);
         }
         
@@ -128,4 +137,7 @@ public class RubyController : MonoBehaviour
     {
         audioSource.PlayOneShot(clip);
     }
+
+
+    
 }
