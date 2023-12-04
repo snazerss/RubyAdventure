@@ -9,7 +9,6 @@ public class EnemyController : MonoBehaviour
     public bool vertical;
     public float changeTime = 3.0f;
     public ParticleSystem smokeEffect;
-   // public Text textElement;
     
     Rigidbody2D rigidbody2D;
     float timer;
@@ -105,15 +104,8 @@ public class EnemyController : MonoBehaviour
     {
         broken = false;
         rigidbody2D.simulated = false;
-        //optional if you added the fixed animation
         animator.SetTrigger("Fixed");
         rubyController.score++;
-        
-        //textElement.text = rubyController.score.ToString();
-
-        //Debug.Log(rubyController.score);
-        //Debug.Log(Fixed.robotHit);
-        //Fixed.ToString;
         
         smokeEffect.Stop();
     }
